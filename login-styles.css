@@ -25,6 +25,7 @@ body {
     height: 100vh;
     margin: 0;
     background-image: url('espacio.jpg'); /* Cambiar el nombre según tu imagen */
+background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
