@@ -21,16 +21,16 @@
           <li> <a href="Noticias.html"> Noticias</a></li>
             <li><a href="perfil.html" target="_blank">Perfil</a></li>
             <li class="dropdown">
-                <a href="#" class="dropbtn">Iniciar sesión</a>
-                <div class="dropdown-content">
-                    <button onclick="googleSignIn()">Iniciar sesión con Google</button>
-                    <h2>Inicio de sesión con correo electrónico</h2>
-                    <input type="email" id="email" placeholder="Correo electrónico">
-                    <input type="password" id="password" placeholder="Contraseña">
-                    <button onclick="emailSignIn(document.getElementById('email').value, document.getElementById('password').value)">Iniciar sesión</button>
-                    <button onclick="emailSignUp(document.getElementById('email').value, document.getElementById('password').value)">Registrarse</button>
-                </div>
-            </li>
+    <a href="login.html" class="dropbtn">Iniciar sesión</a>
+    <div class="dropdown-content">
+        <button onclick="googleSignIn()">Iniciar sesión con Google</button>
+        <h2>Inicio de sesión con correo electrónico</h2>
+        <input type="email" id="email" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="emailSignIn(document.getElementById('email').value, document.getElementById('password').value)">Iniciar sesión</button>
+        <button onclick="emailSignUp(document.getElementById('email').value, document.getElementById('password').value)">Registrarse</button>
+    </div>
+</li>
         </ul>
     </nav>
   
