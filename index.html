@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="juegos.html" target="_blank">Juegos</a></li>
+            <li><a href="encuestas.html" target="_blank">Encuestas</a></li>
+          <li> <a href="Noticias.html"> Noticias</a></li>
+            <li><a href="perfil.html" target="_blank">Perfil</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Iniciar sesión</a>
+                <div class="dropdown-content">
+                    <button onclick="googleSignIn()">Iniciar sesión con Google</button>
+                    <h2>Inicio de sesión con correo electrónico</h2>
+                    <input type="email" id="email" placeholder="Correo electrónico">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <button onclick="emailSignIn(document.getElementById('email').value, document.getElementById('password').value)">Iniciar sesión</button>
+                    <button onclick="emailSignUp(document.getElementById('email').value, document.getElementById('password').value)">Registrarse</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+  
+    <div class="body-container">
+        <div class="container">
+            <h1>Bienvenido a mi página web</h1>
+            <p>Esta es mi primera página web sobre encuestas y juegos.</p>
+
+            <div id="inicio">
+                <h2>Inicio</h2>
+                <p>Bienvenido a nuestra página. Aquí encontrarás diversas encuestas y juegos para tu entretenimiento.</p>
+            </div>
+            
+       
+            <div class="grid-container">
+                <div class="grid-item" id="juegos">
+                    <h2>Juegos</h2>
+                    <a href="juegos.html" target="_blank">
+                        <img src="juegos.jpg" alt="Juegos">
+                    </a>
+                    <p>Disfruta de una variedad de juegos interactivos y divertidos.</p>
+                </div>
+          <div class="grid-item" id="Noticias">
+                <h2>Noticias</h2>
+                 <a href="Noticias.html" target="_blank">
+                  <img src="Noticias.jpg" alt="Noticias">
+                   <p> Aqui encontraras noticias interesantes al dia sobre disintos temas</p>
+          </div>  
+                <div class="grid-item" id="encuestas">
+                    <h2>Encuestas</h2>
+                    <a href="encuestas.html" target="_blank">
+                        <img src="encuestas.jpg" alt="Encuestas">
+                    </a>
+                    <p>Participa en nuestras encuestas y comparte tu opinión.</p>
+                </div>
+
+                <div class="grid-item" id="perfil">
+                    <h2>Perfil</h2>
+                    <a href="perfil.html" target="_blank">
+                        <img src="perfil.jpg" alt="Perfil">
+                    </a>
+                    <p>Accede a tu perfil para ver tus resultados y estadísticas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        const googleSignIn = () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    console.log(result.user);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        };
+
+        const emailSignIn = (email, password) => {
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log(userCredential.user);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        };
+
+        const emailSignUp = (email, password) => {
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log(userCredential.user);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        };
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

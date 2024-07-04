@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida Favorita</title>
+    <link rel="stylesheet" type="text/css" href="encuestas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Comida Favorita</h1>
+        <form id="favoriteFoodForm">
+            <label for="foodType">Tipo de Comida:</label>
+            <select id="foodType" name="foodType">
+                <option value="italian">Italiana</option>
+                <option value="mexican">Mexicana</option>
+                <option value="japanese">Japonesa</option>
+                <option value="chinese">China</option>
+                <option value="indian">India</option>
+            </select>
+            
+            <label for="favoriteDish">Plato Favorito:</label>
+            <input type="text" id="favoriteDish" name="favoriteDish">
+            
+            <label for="frequency">Frecuencia de Consumo:</label>
+            <input type="text" id="frequency" name="frequency">
+            
+            <label for="rating">Calificación:</label>
+            <input type="number" id="rating" name="rating" min="1" max="10">
+            
+            <button type="button" class="btn" onclick="submitForm('favoriteFoodForm')">Enviar</button>
+        </form>
+        <button type="button" class="btn" onclick="location.href='encuestas.html'">Regresar a Encuestas</button>
+    </div>
+    <script src="encuestas.js"></script>
+</body>
+</html>

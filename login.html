@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" type="text/css" href="login-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-wrapper">
+            <div class="form-container" id="form-container">
+                <div class="form front" id="login-form">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="email" id="email" placeholder="Correo electrónico">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <button onclick="validateLoginForm()">Iniciar Sesión</button>
+                    <span id="login-error" class="error-message"></span>
+                    <a href="#" onclick="showForgotPasswordForm()">Olvidé mi contraseña</a>
+                    <button class="toggle-btn" onclick="showRegister()">Registrarse</button>
+                </div>
+                <div class="form back" id="register-form">
+                    <h2>Registrarse</h2>
+                    <input type="email" id="register-email" placeholder="Correo electrónico">
+                    <input type="password" id="register-password" placeholder="Contraseña">
+                    <button onclick="validateRegisterForm()">Registrarse</button>
+                    <span id="register-error" class="error-message"></span>
+                    <button class="toggle-btn" onclick="showLogin()">Iniciar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeForgotPasswordForm()">&times;</span>
+            <h2>Restablecer contraseña</h2>
+            <input type="email" id="forgot-email" placeholder="Correo electrónico">
+            <button onclick="validateForgotPasswordForm()">Enviar</button>
+            <span id="forgot-error" class="error-message"></span>
+        </div>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+</html>
